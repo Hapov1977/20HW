@@ -9,7 +9,7 @@ class TestGenreService:
         self.genre_service = GenreService(dao=genre_dao)
 
     def test_get_one(self):
-        genre = self.genre_service.get_one()
+        genre = self.genre_service.get_one(1)
         assert genre is not None
         assert isinstance(genre.id, int)
         assert genre.name == 'Comedy'
@@ -20,7 +20,7 @@ class TestGenreService:
 
     def test_create(self):
         genre_d = {'name': "New Name"}
-        new_genre = self.genre_service.create()
+        new_genre = self.genre_service.create(genre_d)
         assert new_genre.id is not None
         assert new_genre.name == 'Drama'
 
