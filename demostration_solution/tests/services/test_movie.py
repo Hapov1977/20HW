@@ -20,7 +20,7 @@ class TestMovieService:
 
     def test_create(self):
         movie_d = {'name': "New Name"}
-        new_movie = self.movie_service.create()
+        new_movie = self.movie_service.create(movie_d)
         assert new_movie.id is not None
         assert new_movie.title == 'Movie_3'
         assert new_movie.genre_id == 1
